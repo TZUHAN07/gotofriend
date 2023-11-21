@@ -3,14 +3,21 @@ const path = require("path");
 
 require('dotenv').config({ path: path.resolve(__dirname, '../..', '.env') });
 
-const mongoose = require("../connection/db")
 //view engine
 const app = express();
+// const mongoose = require("../connection/db");
+const uploadRoute = require("../routes/uploadRoute");
+
+//view engine
+// const app = express();
 app.set("views", path.resolve(__dirname, "../views"));
 app.set("view engine", "ejs");
 
 //Middleware
-app.use(express.static("public"));
+app.use(express.static("src/public"));
+
+//routes
+app.use("/upload", uploadRoute);
 
 app.get("/",(req, res)=>{
     res.render("index");

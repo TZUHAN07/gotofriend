@@ -24,7 +24,6 @@ const uploadS3 = async(file) => {
         Key: `uploads/${uuid()}-${file.originalname}`,
         Body: buffer,
     }
-    console.log(uploadParams);
 
     const result = await s3.upload(uploadParams).promise();
 

@@ -20,14 +20,14 @@ const upload =  multer({
 
 
 
-router.post("/", upload.array("file"), uploadController.uploadFile);
+router.post("/", upload.array("image"), uploadController.uploadFile);
 
-router.get("/upload",(req, res)=>{
+router.get("/",(req, res)=>{
     res.send();
 });
 
 
-router.delete("/upload",(req, res)=>{
+router.delete("/",(req, res)=>{
     res.send();
 });
 
